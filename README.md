@@ -1,5 +1,9 @@
 ![openssh](http://www.openssh.com/images/openssh.gif)
 
+[![Build Status](https://drone.xataz.net/api/badges/xataz/docker-openssh/status.svg)](https://drone.xataz.net/xataz/docker-openssh)
+[![](https://images.microbadger.com/badges/image/xataz/openssh.svg)](https://microbadger.com/images/xataz/openssh "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/xataz/openssh.svg)](https://microbadger.com/images/xataz/openssh "Get your own version badge on microbadger.com")
+
 > This image is build and push with [drone.io](https://github.com/drone/drone), a circle-ci like self-hosted.
 > If you don't trust, you can build yourself.
 
