@@ -7,7 +7,7 @@ ENV UID=991 \
 LABEL description="sshd based on alpine" \
       tags="latest" \
       maintainer="xataz <https://github.com/xataz>" \
-      build_ver="2017090601"
+      build_ver="2017090801"
 
 RUN apk add -U openssh \
                 s6 \
