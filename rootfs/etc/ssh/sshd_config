@@ -15,11 +15,9 @@ HostKey /etc/ssh/keys/ssh_host_ed25519_key
 PermitRootLogin no
 AuthorizedKeysFile	.ssh/authorized_keys
 PasswordAuthentication no
-UsePrivilegeSeparation no
 PermitUserEnvironment yes
 IgnoreRhosts yes
 HostbasedAuthentication no
-UsePrivilegeSeparation yes
 StrictModes yes
 X11Forwarding no
 
