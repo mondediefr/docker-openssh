@@ -8,15 +8,13 @@
 
 ### Tag available
 
- - **latest** [(Dockerfile)](https://github.com/mondediefr/docker-openssh/blob/master/Dockerfile)
+- **latest** [(Dockerfile)](https://github.com/mondediefr/docker-openssh/blob/master/Dockerfile)
 
 ### Features
 
 - Multi-platform image: `linux/386`, `linux/amd64`, `linux/arm/v6`, `linux/arm/v7`, `linux/arm64`
 - Based on Alpine Linux
 - No **ROOT** process
-- Persitance custom configuration for murmur
-- Latest murmur version (1.3.1-rc1)
 
 ### Ports
 
@@ -24,7 +22,7 @@
 
 ### Volume
 
-- **/home/$USER** : Mount this on your home directory
+- **/home/${USER}** : Mount this on your home directory
 - **/etc/ssh/keys** : To save server keys
 
 ### Environment variables
