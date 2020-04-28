@@ -8,7 +8,7 @@ LABEL description="openssh based on alpine" \
       tags="latest" \
       maintainer="xataz <https://github.com/xataz>, Magicalex <magicalex@mondedie.fr>"
 
-RUN apk add --no-progress --no-cache
+RUN apk add --no-progress --no-cache \
     openssh \
     s6 \
     su-exec \
