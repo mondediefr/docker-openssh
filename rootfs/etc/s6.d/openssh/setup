@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 if ! test -f /etc/ssh/keys/ssh_host_rsa_key; then
     ssh-keygen -q -f /etc/ssh/keys/ssh_host_rsa_key -N '' -t rsa

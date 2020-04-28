@@ -1,12 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
-addgroup -g ${GID} ${USER} && adduser -h /home/${USER} -s /bin/sh -D -G ${USER} -u ${UID} ${USER}
+addgroup -g "${GID}" "${USER}" && adduser -h "/home/${USER}" -s /bin/sh -D -G "${USER}" -u "${UID}" "${USER}"
+
 PASSWORD=$(date +%s | md5sum | awk '{print $1}')
-passwd ${USER} -d "$PASSWORD" > /dev/null 2>&1
+passwd "${USER}" -d "${PASSWORD}" > /dev/null 2>&1
 
 mkdir -p /etc/ssh/keys
 
-chown -R ${USER}:${USER} /home/${USER} 
+chown -R "${USER}:${USER}" "/home/${USER}"
 chown -R root:root /etc/ssh /etc/s6.d
 
 chmod +x /etc/s6.d/openssh/* /etc/s6.d/.s6-svscan/*
@@ -14,7 +15,7 @@ chmod +x /etc/s6.d/openssh/* /etc/s6.d/.s6-svscan/*
 echo -e "\nAllowUsers ${USER}" >> /etc/ssh/sshd_config
 
 if [ $# -gt 0 ]; then
-    exec su-exec root "$@"
+    exec su-exec root $@
 else
-    exec su-exec root /bin/s6-svscan /etc/s6.d    
+    exec su-exec root /bin/s6-svscan /etc/s6.d
 fi

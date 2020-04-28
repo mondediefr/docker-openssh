@@ -1,22 +1,20 @@
-FROM xataz/alpine:3.7
+FROM alpine:3.11
 
 ENV UID=991 \
     GID=991 \
     USER=openssh
 
-LABEL description="sshd based on alpine" \
+LABEL description="openssh based on alpine" \
       tags="latest" \
-      maintainer="xataz <https://github.com/xataz>" \
-      build_ver="2018020501"
+      maintainer="xataz <https://github.com/xataz>, Magicalex <magicalex@mondedie.fr>"
 
-RUN apk add -U openssh \
-                s6 \
-                su-exec \
-                rsync \
-    && rm -rf /var/cache/apk/*
+RUN apk add --no-progress --no-cache
+    openssh \
+    s6 \
+    su-exec \
+    rsync
 
 COPY rootfs /
 RUN chmod +x /usr/local/bin/startup
 EXPOSE 2222
-
 ENTRYPOINT ["/usr/local/bin/startup"]

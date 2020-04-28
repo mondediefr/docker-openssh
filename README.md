@@ -1,63 +1,59 @@
+# mondedie/openssh
+
 ![openssh](http://www.openssh.com/images/openssh.gif)
 
-[![Build Status](https://drone.xataz.net/api/badges/xataz/docker-openssh/status.svg)](https://drone.xataz.net/xataz/docker-openssh)
-[![](https://images.microbadger.com/badges/image/xataz/openssh.svg)](https://microbadger.com/images/xataz/openssh "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/xataz/openssh.svg)](https://microbadger.com/images/xataz/openssh "Get your own version badge on microbadger.com")
+![](https://github.com/mondediefr/docker-openssh/workflows/build/badge.svg)
+[![](https://img.shields.io/docker/pulls/mondedie/openssh)](https://hub.docker.com/r/mondedie/openssh)
+[![](https://img.shields.io/docker/stars/mondedie/openssh)](https://hub.docker.com/r/mondedie/openssh)
 
-> This image is build and push with [drone.io](https://github.com/drone/drone), a circle-ci like self-hosted.
-> If you don't trust, you can build yourself.
+### Tag available
 
-## Description
-openssh and rsync on alpine
+ - **latest** [(Dockerfile)](https://github.com/mondediefr/docker-openssh/blob/master/Dockerfile)
 
-What is [opensshd](http://www.openssh.com/) ?
+### Features
 
-OpenSSH is the premier connectivity tool for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options.
-
-The OpenSSH suite consists of the following tools:
-
-Remote operations are done using ssh, scp, and sftp.
-Key management with ssh-add, ssh-keysign, ssh-keyscan, and ssh-keygen.
-The service side consists of sshd, sftp-server, and ssh-agent.
-OpenSSH is developed by a few developers of the OpenBSD Project and made available under a BSD-style license.
-
-OpenSSH is incorporated into many commercial products, but very few of those companies assist OpenSSH with funding.
-
-Contributions towards OpenSSH can be sent to the OpenBSD Foundation.
-
-What is [rsync](https://en.wikipedia.org/wiki/Rsync) ?
-rsync is a utility that keeps copies of a file on two computer systems. It is commonly found on Unix-like systems and functions as both a file synchronization and file transfer program. The rsync algorithm is a type of delta encoding, and is used to minimize network usage. Zlib may be used for additional compression, and SSH or stunnel can be used for data security.
-
-## Build Image
-
-```shell
-docker build -t xataz/sshd github.com/xataz/dockerfiles.git#master:openssh
-```
-
-## Configuration
-### Environments
-* UID : Choose uid for use sshd (default : 991)
-* GID : Choose gid for use sshd (default : 991)
-* USER : Choose username (default : openssh)
-
-### Volumes
-* /home/$USER : Mount this on your home directory
-* /etc/ssh/keys : For save server keys
+- Multi-platform image: `linux/386`, `linux/amd64`, `linux/arm/v6`, `linux/arm/v7`, `linux/arm64`
+- Based on Alpine Linux
+- No **ROOT** process
+- Persitance custom configuration for murmur
+- Latest murmur version (1.3.1-rc1)
 
 ### Ports
-* 2222
 
-## Usage
-### Build your project
-```shell
-docker run -it --rm \
-    -e UID=$(id -u) \
-    -e GID=$(id -g) \
-    -e USER=$USER \
-    -v ~/:/home/$USER \
-    xataz/sshd
+- Default: **2222** (configurable)
+
+### Volume
+
+- **/home/$USER** : Mount this on your home directory
+- **/etc/ssh/keys** : To save server keys
+
+### Environment variables
+
+| Variable | Description | Type | Default value |
+| -------- | ----------- | ---- | ------------- |
+| **UID** | openssh user id | *optional* | 991
+| **GID** | openssh user id | *optional* | 991
+| **USER** | openssh user name | *optional* | openssh
+
+### Usage
+
+#### Build image
+
+```sh
+docker build -t mondedie/openssh:latest https://github.com/mondediefr/docker-openssh.git
 ```
 
-## Contributing
-Any contributions, are very welcome !
+Run your openssh server
 
+```sh
+docker run -it --rm \
+  -e UID=1000 \
+  -e GID=1000 \
+  -e USER=user \
+  -v /home/user:/home/user \
+  mondedie/openssh:latest
+```
+
+## License
+
+Docker image [mondedie/openssh](https://hub.docker.com/r/mondedie/openssh) is released under [MIT License](https://github.com/mondediefr/docker-openssh/blob/master/LICENSE).
