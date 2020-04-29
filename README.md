@@ -8,13 +8,12 @@
 
 ### Tag available
 
-- **latest** [(Dockerfile)](https://github.com/mondediefr/docker-openssh/blob/master/Dockerfile)
+- latest [(Dockerfile)](https://github.com/mondediefr/docker-openssh/blob/master/Dockerfile)
 
 ### Features
 
-- Multi-platform image: `linux/386`, `linux/amd64`, `linux/arm/v6`, `linux/arm/v7`, `linux/arm64`
 - Based on Alpine Linux
-- No **ROOT** process
+- Multi-platform image: `linux/386`, `linux/amd64`, `linux/arm/v6`, `linux/arm/v7`, `linux/arm64`
 
 ### Ports
 
