@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.12
 
 ENV UID=991 \
     GID=991 \
@@ -6,7 +6,7 @@ ENV UID=991 \
 
 LABEL description="openssh based on alpine" \
       tags="latest" \
-      maintainer="xataz <https://github.com/xataz>, Magicalex <magicalex@mondedie.fr>"
+      maintainer="Magicalex <magicalex@mondedie.fr>"
 
 RUN apk add --no-progress --no-cache \
     openssh \
